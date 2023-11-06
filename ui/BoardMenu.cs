@@ -9,6 +9,8 @@ namespace Tic_tac_game
         private string character;
 
         private threeBoard three = new threeBoard();
+        private fourBoard four = new fourBoard();
+        private fiveBoard five = new fiveBoard();
         
         Player player1 = new Player();
         Player player2 = new Player();
@@ -37,19 +39,25 @@ namespace Tic_tac_game
             
         }
         
-        void checkTable()
+        public void checkTable()
         {
             if (radio_1.Checked)
             {
+                three.identify_player1 = player1.Character;
+                three.identify_player2 = player2.Character;
                 three.Show();
             }
             else if (radio_2.Checked)
             {
-                
+                four.identify_player1 = player1.Character;
+                four.identify_player2 = player2.Character;
+                four.Show();
             }
             else if (radio_3.Checked)
             {
-                
+                five.identify_player1 = player1.Character;
+                five.identify_player2 = player2.Character;
+                five.Show();
             }
         }
 
@@ -71,10 +79,7 @@ namespace Tic_tac_game
         private void begin_game_Click(object sender, EventArgs e)
         {
             
-
             setPlayerChar(player1, player2);
-            three.identify_player1 = player1.Character;
-            three.identify_player2 = player2.Character;
             checkTable();
             MessageBox.Show(player1.Character);
 
